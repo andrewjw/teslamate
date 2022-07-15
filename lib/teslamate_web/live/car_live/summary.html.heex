@@ -21,11 +21,11 @@
         <p class="title is-5"><%= @summary.display_name %></p>
         <%= unless is_nil(@car.model) do %>
         <p class="subtitle is-6 has-text-weight-light">Model <%= @car.model %> <%=
-            if @car.friendly_name != nil do %><span
+            if @car.marketing_name != nil do %><span
                   class="has-tooltip-right has-tooltip-left-mobile"
                   style="border-bottom: none;"
                   data-tooltip={@car.trim_badging}><%=
-              @car.friendly_name
+              @car.marketing_name
             %></span>
           <% else %><%=
             @car.trim_badging
@@ -285,7 +285,7 @@
           <%= unless is_nil(@summary.version) do %>
           <tr>
             <td class="has-text-weight-medium"><%= gettext "Version" %></td>
-            <td><%= @summary.version %></td>
+            <td><%= link @summary.version, to: "https://www.notateslaapp.com/software-updates/version/#{@summary.version}/release-notes", target: "_blank", rel: "noopener noreferrer" %></td>
           </tr>
           <% end %>
         </tbody>
